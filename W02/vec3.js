@@ -7,7 +7,7 @@ this.z = z;
 
 // select min. value
 Vec3.prototype.min = function(v){
-    retun v.x;
+    retun v(1);
 }
 
 // select mid. value
