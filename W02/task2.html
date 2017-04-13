@@ -1,29 +1,73 @@
 <!DOCTYPE html>
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <title> W02: Task 02</title>
 </head>
+
 <body>
+<div align="center">
+    <p>InfoVis W02 : Task02</p>
+    <p>170X111X : Naoki Saga</p>
+    <br>
+    <div style="background: rgba(20,200,200,0.1); width: 600px;"> Calculate the area of a triangle given the coordinates of the three vertices</div>
+    <br>
+    <div>e.g.) input vertex : <input type="text" value="1,2,3" size="10px" disabled="disabled"> </div>
+    <br>
+    <form name="cal_form" id="calFormId">
+        <div> input vertex 0 : <input type="text" id="v0"> </div>
+        <div> input vertex 1 : <input type="text" id="v1"> </div>
+        <div> input vertex 2 : <input type="text" id="v2"> </div>    
+        <input type="button" value="calculate" id="cal" onClick="calculate()"/>
+    </form>
+</div>
+<br>
+<div id="ans" align="center"></div>
+    
+
 <!-- JS code -->
     <script src="vec3.js"></script>
     <script src="areaOfTriangle.js"></script>
     <script>
-    var x0, y0, z0;
-    var x1, y1, z1;
-    var x2, y2, z2;
+
+    function calculate() {
+    var vv0 = document.cal_form.v0.value;
+    var vv1 = document.cal_form.v1.value;
+    var vv2 = document.cal_form.v2.value;
+
+    var v0s = vv0.split(",");
+    var v1s = vv1.split(",");
+    var v2s = vv2.split(",");
+
+
+    v0x = parseInt(v0s[0]);
+    v1x = parseInt(v1s[0]);
+    v2x = parseInt(v2s[0]);
+    v0y = parseInt(v0s[1]);
+    v1y = parseInt(v1s[1]);
+    v2y = parseInt(v2s[1]);
+    v0z = parseInt(v0s[2]);
+    v1z = parseInt(v1s[2]);
+    v2z = parseInt(v2s[2]);
+
     
-    var v0 = new Vec3(x0, y0, z0);
-    var v1 = new Vec3(x1, y1, z1);
-    var v2 = new Vec3(x2, y2, z2);
+    var v0 = new Vec3(v0x, v0y, v0z);
+    var v1 = new Vec3(v1x, v1y, v1z);
+    var v2 = new Vec3(v2x, v2y, v2z);
 
     var S = AreaOfTriangle(v0 ,v1, v2);
+
+    document.getElementById("ans").innerHTML = "ANSWER : " + S.toFixed(2);
     
+    }
+
     </script>
     
-    <script>
-    dogument.getElementById('click_me').addEventListener('click',function(){window.alert('Clicked!')});
+  <!--  <script>
+    dogument.getElementById('cal').addEventListener('cal',function(){window.alert('Clicked!');});
+    </script> -->
 <!-- JS code-->
 
-<input type="button" value="Clicl Me" id="click_me"/>
 
 </body>
 </html>
