@@ -3,6 +3,14 @@
    <title> W02: Task 01</title>
 </head>
 <body>
+
+<div align="center">
+    <p>InfoVis W02 : Task01</p>
+    <p>170X111X : Naoki Saga</p>
+<p>min : <span id="min"> </span></p>
+<p>mid : <span id="mid"> </span></p>
+<p>max : <span id="max"> </span></p>
+</div>
 <!-- JS code -->
     <script src="vec3.js"></script>
     <script>
@@ -15,16 +23,13 @@
     var mid = v.mid(v);
     var max = v.max(v);
 
-    document.getElementById("min").value = min;
-    document.getElementById("mid").value = mid;
-    document.getElementById("max").value = max;
+    document.getElementById("min").innerHTML = min;
+    document.getElementById("mid").innerHTML = mid;
+    document.getElementById("max").innerHTML = max;
+
     
     </script>
 <!-- JS code-->
-<p id="min"> </p>
-<p id="mid"> </p>
-<p id="max"> </p>
-
 
 
 </body>

@@ -7,13 +7,13 @@ this.z = z;
 
 // select min. value
 Vec3.prototype.min = function(v){
-    return Math.min(v);
+    return Math.min(v.x, v.y, v.z);
 }
 
 // select mid. value
 Vec3.prototype.mid = function(v){
-    var max = Math.max(v);
-    var min = Math.min(v);
+    var max = Math.max(v.x, v.y, v.z);
+    var min = Math.min(v.x, v.y, v.z);
     
     if (v.x!=max && v.x!=min){
         return v.x;
@@ -27,5 +27,5 @@ Vec3.prototype.mid = function(v){
 
 // select max. value
 Vec3.prototype.max = function(v){
-    return Math.max(v);
+    return Math.max(v.x, v.y, v.z);
 }
