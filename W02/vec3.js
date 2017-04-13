@@ -20,7 +20,7 @@ Vec3.prototype.mid = function(v){
     }else if (v.y!=max && v.y!=min){
         return v.y;
     }else {
-        return v.z
+        return v.z;
     }
     
 }
