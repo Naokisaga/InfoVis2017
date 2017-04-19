@@ -9,6 +9,11 @@ function main2()
     var aspect = width / height;
     var near = 1;
     var far = 1000;
+    
+    var camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
+    camera.position.set( 0, 0, 5 );
+    scene.add( camera );
+
     var light = new THREE.PointLight( 0xffffff );
     light.position.set( 1, 1, 1 );
     scene.add( light );
@@ -29,6 +34,6 @@ function main2()
         requestAnimationFrame( loop );
         cube.rotation.x += 0.001;
         cube.rotation.y += 0.001;
-        renderer.render( scene, light );
+        renderer.render( scene, camera );
     }
 }
