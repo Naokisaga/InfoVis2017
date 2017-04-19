@@ -20,7 +20,7 @@ function main2()
 
     var params = 
 
-    var renderer = new THREE.WebGLRenderer({antiailias: true,depth: true});
+    var renderer = new THREE.WebGLRenderer({antialias: true,depth: true});
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );
 
