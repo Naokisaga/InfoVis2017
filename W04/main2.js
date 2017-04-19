@@ -18,7 +18,9 @@ function main2()
     light.position.set( 1, 1, 1 );
     scene.add( light );
 
-    var renderer = new THREE.WebGLRenderer();
+    var params = 
+
+    var renderer = new THREE.WebGLRenderer({antiailias: true,depth: true});
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );
 
