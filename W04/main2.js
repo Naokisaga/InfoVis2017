@@ -14,10 +14,6 @@ function main2()
     camera.position.set( 0, 0, 5 );
     scene.add( camera );
 
-    var light = new THREE.PointLight( 0xf1f1fa );
-    light.position.set( 1, 1, 1 );
-    scene.add( light );
-
     var renderer = new THREE.WebGLRenderer({antialias: true,depth: true});
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );
@@ -32,8 +28,8 @@ function main2()
     function loop()
     {
         requestAnimationFrame( loop );
-        cube.rotation.x += 0.001;
-        cube.rotation.y += 0.001;
+        cube.rotation.x += 0.011;
+        cube.rotation.y += 0.011;
         renderer.render( scene, camera );
     }
 }
