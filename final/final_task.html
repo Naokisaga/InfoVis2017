@@ -1,0 +1,193 @@
+<html>
+    <head>
+	<title>Final Task</title>
+	<style>
+
+	.ui{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20%;
+		height: 100%;
+		background: rgba(120,120,220,0.1);
+		margin: 0px;
+	}
+	.title{
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		width: 250px;
+		height: 90px;
+		background: rgba(30,210,255,0.1);
+		text-align: center;
+		padding: 5px;
+		font-size: 20px
+	}
+	.comment{
+		position: absolute;
+		left: 10px;
+		top: 120px;
+		width: 250px;
+		height: 80px;
+		background: rgba(30,210,255,0.1);
+		z-index: 100;
+		padding: 5px;
+		font-size: 18px
+
+	}
+	.cmap_wrap{
+		position: absolute;
+		left: 10px;
+		top: 240px;
+		text-align: center;
+		width: 256px;
+		height:80px;
+		/*background: rgba(232,2,25,0.8);*/
+	}
+
+	.cmap{
+		position: relative;
+		left: 0px;
+		top: 0px;
+		width: 256px;
+		height: 50px;
+		border-style: solid;
+		border-color: white;
+		border-width: 5px;
+		cursor: pointer;
+	}
+
+	.comment2{
+		position: absolute;
+		left: 10px;
+		top: 400px;
+		width: 250px;
+		height: 60px;
+		background: rgba(30,210,255,0.1);
+		z-index: 100;
+		padding: 5px;
+		font-size: 18px
+
+	}	
+
+	.iso_wrap{
+		position: absolute;
+		left: 10px;
+		top: 480px;
+		width: 256px;
+		height: 100px;
+		padding: 10px;
+		text-align: center;
+		/*background: rgba(2,122,25,0.8);*/
+
+	}
+
+	.iso{
+		position: absolute;
+		left: 0px;
+		top: 40px;
+		width: 240px;
+		height: 20px;
+		border-style: solid;
+		border-color: white;
+		border-width: 5px;
+		padding: 10px;
+		text-align: center;
+		background: rgba(232,2,25,0.8);
+	}
+	#isov{
+		cursor: pointer;
+	}
+
+	#iv{
+		position: absolute;
+		top: 40px;
+		left: 40px;
+		width: 150px;
+		height: 25px;
+		border-style: solid;
+		border-color: white;
+		border-width: 5px;
+		padding: 2px;
+		
+	}
+
+	</style>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			document.getElementById("range").innerHTML=128;
+		});
+		function showValue(newValue)
+		{
+			document.getElementById("range").innerHTML=newValue;
+		}
+	</script>
+    </head>
+    <body style="margin:0">
+	<script src="three.min.js"></script>
+	<script src="getColorMap.js"></script>
+	<script src="Lut.js"></script>
+	<script src="TrackballControls.js"></script>
+	<script src="KVS.min.js"></script>
+	<script src="KVS2THREE.min.js"></script>
+	<script src="KVSLobsterData.js"></script>
+	<script src="isosurfaces.js"></script>
+	<script src="Bounds.js"></script>
+	<script src="final_task.js"></script>
+	<div class="ui">
+		<div class="title">
+		FINAL TASK
+		<p>170X111X , Naoki Saga
+		</div>
+
+		<div class="comment">
+		You can change the color of lobster with the map below !! 
+		</div>
+
+
+	    <div class="cmap_wrap">
+    		Color Map
+    	<div class="cmap" id="cmap"></div>
+    	</div>
+
+    	<div class="comment2">
+		You can change 'isovalue' with the bar below !! 
+		</div>
+
+    	<div class="iso_wrap">
+    		Isovalue change bar
+	    	<div class="iso" id="iso">
+	    		<input type="range" id="isov" min="0" max="255" value="128" oninput="showValue(this.value)"/>
+	    		<div id="iv">isovalue : <span id="range"></span></div>
+	    	</div>
+    	</div>
+    </div>
+
+    <div id="display" style="width: 80%; float: right;"></div>
+
+	<script>
+	   var cmap_str = 'linear-gradient(90deg,';
+	   var cmap = getColorMap2();
+	    for ( var i = 0; i < 256; i++ )
+	    {
+	        if (i==0){
+	        	cmap_str = cmap_str + cmap[i] + ',';
+	        }
+	        else if(i==255){
+	        	cmap_str = cmap_str + cmap[i] + ')';
+	        }
+	        else{
+	        	cmap_str = cmap_str + cmap[i] + ',';
+	        }
+	    }
+	        $('.cmap').css('background',cmap_str);
+	</script>
+	<script>
+		main();
+	</script>
+    </body>
+</html>
